@@ -74,9 +74,11 @@ dotnet restore
 
 ### 3️⃣ Build the Project
 
-Compile the solution with: dotnet build
-
-Or simply press Fn + F5 in your IDE to launch the project directly in the browser.
+Compile the solution with: 
+```
+dotnet build
+```
+Or simply press `Fn + 5` in your IDE to launch the project directly in the browser.
 
 You should now see the login screen.
 
