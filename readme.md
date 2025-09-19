@@ -1,38 +1,113 @@
-# Bug Tracking Web Application
-It's a web application designed to manage and track bugs of different projects in an organization. It gives single view of all the projects, currently opened bugs and total resolved bugs. This project uses `dotnet core 6.0`, `razor c#`, `Entity Framework Core`, `Identity Core` and `MySQL`.
+# 🐞 Bug Tracking
 
-#### It has 3 access roles `Admin`, `Manager` and `Developer`. 
-- Developer can view all the projects and bugs in each project and also `add`, `edit`, `resolve`, `delete` bugs in the project.
-- Manager can `add Project` as well as all the access which developer has.
-- Admin can `add roles` and `manager users`.
+A **role-based web application** for managing and tracking bugs across multiple projects in an organization.  
+Provides a single-dashboard view of projects, currently open bugs, and total resolved bugs to help teams stay organized and ship higher-quality software.
 
-## How to run this project locally
-- Clone the project and open it in a code editor.
-- Open terminal, change directory to root of the project if already not there and run below command:-
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** .NET 6 (ASP.NET Core / Razor Pages)  
+- **Language:** C# (Razor)  
+- **ORM:** Entity Framework Core  
+- **Auth:** ASP.NET Core Identity (Role-based)  
+- **Database:** MySQL
+
+---
+
+## ✨ Key Features
+
+- Centralized **project dashboard** showing open & resolved bug counts  
+- Full **bug lifecycle**: create, edit, resolve, delete  
+- **Role-based access**: Admin, Manager, Developer  
+- User management and secure authentication via Identity Core  
+- EF Core migrations for database versioning and portability
+
+---
+
+## 👥 Roles & Permissions
+
+- **Admin**
+  - Manage roles
+  - Create and manage Manager users
+  - Full system access
+
+- **Manager**
+  - All Developer permissions
+  - Create and manage projects
+
+- **Developer**
+  - View projects and bugs
+  - Add / Edit / Resolve / Delete bugs
+
+---
+
+## ⚙️ Prerequisites
+
+- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)  
+- [MySQL Server](https://dev.mysql.com/downloads/) (or Docker MySQL image)  
+- EF Core CLI tools (optional but recommended):  
+
+---
+
+## ⚙️ How to Run This Project Locally
+
+Follow these steps to set up and run the application on your local machine:
+
+### 1️⃣ Clone the Project
+
+Clone the repository and open it in your preferred code editor (Visual Studio, Rider, or VS Code).
+
+Example: git clone https://github.com/your-username/bug-tracking-app.git
+
+Then navigate into the project folder: 
+```
+cd bug-tracking-app
+```
+
+### 2️⃣ Restore Dependencies
+
+Run: 
 ```
 dotnet restore
 ```
-- After successful completion of above command, run:-
-```
-dotnet build
-```
-Or
-- Can press `func + F5` to launch the browser, and it will show a login screen.
 
-- To Create database and tables, you can run below command:-
+### 3️⃣ Build the Project
+
+Compile the solution with: dotnet build
+
+Or simply press Fn + F5 in your IDE to launch the project directly in the browser.
+
+You should now see the login screen.
+
+### 4️⃣ Create Database & Tables
+
+Create the initial migration: 
 ```
 dotnet ef migrations add Init
 ```
 
-and after successful completion on above command, run:-
-
+Apply the migration to generate tables: 
 ```
 dotnet ef database update
 ```
 
-- To Create Users and Roles with some default data, you can run `seedData.sql` script, it will create all the roles and default user to use the application.
+### 5️⃣ Seed Users & Roles
 
-- Also, you can sign up with UserName and Password, it will log in with default role as developer
+Run the provided `seedData.sql` script to insert default roles (Admin, Manager, Developer) and a default test user.
+Example (MySQL CLI): 
+```
+mysql -u root -p BugTrackingDB < scripts/seedData.sql
+```
 
-## Project Demo:-
+Alternatively, you can sign up directly in the app. New accounts are assigned the Developer role by default.
+
+#### ✅ At this point, the application should be running and accessible at:
+```
+https://localhost:5001
+```
+
+---
+## 🎥 Project Demo
+
 [Demo](https://user-images.githubusercontent.com/30929093/215810141-67dc03de-800d-4c8e-a42a-c3a28a4a91a9.mp4)
